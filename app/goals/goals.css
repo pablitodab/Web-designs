@@ -1,0 +1,207 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0a2540 0%, #093256 100%);
+    color: white;    
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 22px;
+    padding: 12px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.top-bar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 27%;
+}
+
+.goal-item {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.goal-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.goal-item.completed {
+    border-color: #10b981;
+    background: rgba(16,185,129,0.1);
+}
+
+.goal-item.expired {
+    border-color: rgba(239,68,68,0.4);
+    opacity: 0.7;
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.goal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f8f9ff;
+    margin: 0;
+    flex: 1;
+}
+
+.goal-description {
+    color: rgba(248,249,255,0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.goal-dates {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.date-badge {
+    background: rgba(102,126,234,0.15);
+    border: 1px solid rgba(102,126,234,0.3);
+    padding: 0.4rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: rgba(248,249,255,0.8);
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.goal-item.completed .progress-bar {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.goal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.days-remaining {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.days-remaining.warning {
+    color: #f59e0b;
+}
+
+.days-remaining.expired {
+    color: #ef4444;
+}
+
+.complete-btn {
+    background: rgba(102,126,234,0.2);
+    border: 1px solid rgba(102,126,234,0.4);
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+    background: rgba(102,126,234,0.3);
+    transform: scale(1.05);
+}
+
+.complete-btn.completed {
+    background: rgba(16,185,129,0.2);
+    border-color: rgba(16,185,129,0.4);
+    color: #10b981;
+}
+
+.delete-btn {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #fca5a5;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.delete-btn:hover {
+    background: rgba(239,68,68,0.25);
+    transform: scale(1.1);
+}
+
+.goals-form {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.goals-form input {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    color: #f8f9ff;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.goals-form input::placeholder {
+    color: rgba(248,249,255,0.5);
+}
+
+.goals-form input:focus {
+    outline: none;
+    border-color: rgba(102,126,234,0.6);
+    background: rgba(255,255,255,0.1);
+}

@@ -1,0 +1,133 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0a2540 0%, #1e3a5f 50%, #093256 100%);
+  color: #f8f9ff; min-height: 100vh; display: flex; flex-direction: column;
+  padding: 0 4px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 22px;
+    padding: 12px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.top-bar h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 18%;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto !important;
+  padding: 20px 8px 160px 12px !important;
+  scroll-padding-bottom: 40px !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102,126,234,0.6) rgba(255,255,255,0.08);
+}
+
+
+.main-content::-webkit-scrollbar {
+  width: 5px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04); border-radius: 12px; margin: 12px 0;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(102,126,234,0.8), rgba(118,75,162,0.8));
+  border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);
+}
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #667eea, #764ba2);
+}
+
+.history-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 120px;
+}
+
+.history-item {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.history-item::before {
+    content: attr(data-date) " • " attr(data-exercise);
+    grid-column: 1 / -1;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f8f9ff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.history-item span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-item span::before {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(102, 126, 234, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.history-item .start-time::before { content: "⏰ Hora"; }
+.history-item .duration::before { content: "⏱️ Duración"; }
+.history-item .calories::before { content: "🔥 Calorías"; }
+.history-item .distance::before { content: "📍 Distancia"; }
+.history-item .avg-heart-rate::before { content: "❤️ Freq. Media"; }
+.history-item .max-heart-rate::before { content: "💓 Freq. Máxima"; }
+
+.history-item span {
+    font-size: 14px;
+    color: #f8f9ff;
+    font-weight: 500;
+}
+
+.history-item .type-cardio {
+    display: none;
+}

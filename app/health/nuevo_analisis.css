@@ -37,6 +37,7 @@ body {
 .red::before { background: linear-gradient(90deg, #ff4444, #ff6b6b); }
 .orange::before { background: linear-gradient(90deg, #ff8c00, #ff7f50); }
 .purple::before { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+.black::before { background: linear-gradient(90deg, #000000, #000000); }
 
 .input-group label {
   font-size: 15px; font-weight: 500; color: rgba(248,249,255,0.85);

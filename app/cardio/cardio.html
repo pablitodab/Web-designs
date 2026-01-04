@@ -3,50 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="contact.css">
+    <title>Cardio</title>
+    <link rel="stylesheet" href="cardio.css">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
 <body>
     <header class="top-bar">
-        <button class="back-btn">&#8592;</button>
-        <h1>Contact</h1>
+        <button class="back-btn" onclick="window.location.href='../dashboard.html'">&#8592;</button>
+        <h1>Cardio</h1>
     </header>
+    
     <main class="main-content">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>¿Alguna pregunta?</h2>
-                <p>Ponte en contacto conmigo a través de este formulario o las redes sociales.</p>
+        <section class="progress-section">
+            <div class="circle-progress">
+                <div class="circle-inner">
+                    <p class="percent">20.00%</p>
+                    <p class="label">Calorias</p>
+                </div>
             </div>
-
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Asunto</label>
-                    <input type="text" id="subject" name="subject" placeholder="Asunto del mensaje" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" placeholder="Tu mensaje aquí..." rows="6" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Enviar Mensaje</button>
-            </form>
+            <p class="subtitle">Tu <strong>objetivo semanal</strong> es de 1700 KCAL</p>
+        </section>
+        <section class="stats">
+            <div class="stat">
+                <span class="stat-value">1:27</span>
+                <span class="stat-label">Horas</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">5.0</span>
+                <span class="stat-label">Km</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">470</span>
+                <span class="stat-label">Kcal</span>
+            </div>
+        </section>
+        <div class="bottom-buttons">
+            <button type="button" onclick="window.location.href='historial.html'">
+                Historial
+            </button>
+            <button type="button" onclick="window.location.href='configuracion.html'">
+                Configuración
+            </button>
+            <button type="button" onclick="window.location.href='sesion.html'">
+                Nueva sesión
+            </button>
+        </div>
     </main>
+
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <nav aria-label="Enlaces del pie">
-                <a href="/index.html">Inicio</a>
+                <p>Cualquier duda: <a href="../contact/contact.html">Contacto</a></p>
                 <a href="../privacy/privacy.html">Privacidad</a>
             </nav>
 

@@ -3,64 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo análisis</title>
-    <link rel="stylesheet" href="nuevo_analisis.css">
+    <title>Sesión</title>
+    <link rel="stylesheet" href="sesion.css">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
 <body>
     <header class="top-bar">
-        <button class="back-btn" onclick="window.location.href='health.html'">&#8592;</button>
-        <h1>Nuevo análisis</h1>
+        <button class="back-btn" onclick="window.location.href='cardio.html'">&#8592;</button>
+        <h1>Nueva sesión</h1>
     </header>
-
     <main class="main-content">
-        <div class="input-group pink">
-            <label for="date">Fecha del análisis</label>
-            <input type="date" id="date" value="2026-01-04" required>
-            <span class="icon">📅</span>
-        </div>
-
-        <div class="input-group green">
-            <label for="weight">Peso</label>
-            <input type="number" id="weight" placeholder="Kg" required>
-            <span class="icon">⚖️</span>
-        </div>
-
-        <div class="input-group blue">
-            <label for="height">Altura</label>
-            <input type="number" id="height" placeholder="cm" required>
-            <span class="icon">📏</span>
-        </div>
-
-        <div class="input-group yellow">
-            <label for="imc">IMC</label>
-            <input type="number" id="imc">
-            <span class="icon">📊</span>
-        </div>
-
-        <div class="input-group red">
-            <label for="fat">Grasa</label>
-            <input type="number" id="fat" placeholder="%" required>
-            <span class="icon">💧</span>
-        </div>
-
-        <div class="input-group orange">
-            <label for="muscle">Músculo</label>
-            <input type="number" id="muscle" placeholder="%" required>
-            <span class="icon">💪</span>
-        </div>
-
-        <div class="input-group purple">
-            <label for="metabolism">Metabolismo basal</label>
-            <input type="number" id="metabolism" placeholder="Kcal" required>
-            <span class="icon">🔥</span>
-        </div>
-
-        <button class="save-btn" onclick="window.location.href='health.html'">
-            Guardar
-        </button>
+        <section class="session-form">
+            <div>
+                <label for="type-cardio">Tipo de cardio:</label>
+                <select name="type-cardio" id="type-cardio">
+                    <option value="run">Correr</option>
+                    <option value="treadmill">Correr en cinta</option>
+                    <option value="bike">Bicicleta</option>
+                    <option value="stationary_bike">Bicicleta estática</option>
+                    <option value="elliptical">Elíptica</option>
+                    <option value="swimming">Natación</option>
+                    <option value="rowing">Remo</option>
+                    <option value="boxing">Boxeo</option>
+                    <option value="comba">Comba</option>
+                    <option value="walking">Andar</option>
+                    <option value="treadmill_walking">Andar en cinta</option>
+                    <option value="stairs">Escaleras</option>
+                </select>
+            </div>
+            <div>
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date">
+            </div>
+            <div>
+                <label for="start-time">Hora de inicio:</label>
+                <input type="time" id="start-time" name="start-time">
+            </div>
+            <div>
+                <label for="duration">Duración</label>
+                <input type="number" id="duration" name="duration" placeholder="Minutos">
+            </div>
+            <div>
+                <label for="calories">Calorías quemadas</label>
+                <input type="number" id="calories" name="calories" placeholder="Kcal">
+            </div>
+            <div>
+                <label for="distance">Distancia</label>
+                <input type="number" id="distance" name="distance" placeholder="Km">
+            </div>
+            <div>
+                <label for="avg-heart-rate">Frecuencia cardíaca media</label>
+                <input type="number" id="avg-heart-rate" name="avg-heart-rate" placeholder="BPM">
+            </div>
+            <div>
+                <label for="max-heart-rate">Frecuencia cardíaca máxima</label>
+                <input type="number" id="max-heart-rate" name="max-heart-rate" placeholder="BPM">
+            </div>
+            <div>
+                <button type="submit" onclick="window.location.href='cardio.html'">Guardar</button>
+            </div>
+        </section>
     </main>
-
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <nav aria-label="Enlaces del pie">

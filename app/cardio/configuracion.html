@@ -1,59 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud</title>
-    <link rel="stylesheet" href="health.css">
+    <title>Configuración</title>
+    <link rel="stylesheet" href="configuracion.css">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
-
 <body>
     <header class="top-bar">
-        <button class="back-btn">&#8592;</button>
-        <h1>Salud</h1>
+        <button class="back-btn" onclick="window.location.href='cardio.html'">&#8592;</button>
+        <h1>Configuración</h1>
     </header>
-
     <main class="main-content">
-        <section class="fat-section">
-            <div class="circle-progress">
-                <div class="circle-inner">
-                    <p class="percent">20.00%</p>
-                    <p class="label">Grasa</p>
-                </div>
-            </div>
-            <p class="subtitle">LIGERO SOBREPESO</p>
+        <section class="config-form">
+                <div class="form-group full-width">
+        <label for="goal">Objetivo:</label>
+        <select name="goal" id="goal">
+            <option value="lose">Pérdida de peso</option>
+            <option value="maintain">Mantener peso</option>
+            <option value="gain">Ganar masa muscular</option>
+            <option value="improve">Mejorar resistencia</option>
+            <option value="both">Perder grasa y ganar músculo</option>
+        </select>
+    </div>
+
+    <div class="form-group full-width">
+        <label for="form">Forma física</label>
+        <select name="form" id="form">
+            <option value="beginner">Principiante</option>
+            <option value="intermediate">Intermedio</option>
+            <option value="advanced">Avanzado</option>
+            <option value="competition">Competición</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="weight">Peso</label>
+        <input type="number" id="weight" name="weight" placeholder="Kg">
+    </div>
+
+    <div class="form-group">
+        <label for="height">Altura</label>
+        <input type="number" id="height" name="height" placeholder="cm">
+    </div>
+
+    <div class="form-group">
+        <label for="Kcal-goal">Gasto semanal</label>
+        <input type="number" id="Kcal-goal" name="Kcal-goal" placeholder="Kcal">
+    </div>
+
+    <div class="form-group">
+        <label for="activity">Actividad física</label>
+        <input type="number" id="activity" name="activity" placeholder="Días por semana">
+    </div>
         </section>
 
-        <section class="stats">
-            <div class="stat">
-                <span class="stat-value">26,33</span>
-                <span class="stat-label">IMC</span>
-            </div>
-            <div class="stat">
-                <span class="stat-value">77 Kg</span>
-                <span class="stat-label">Peso</span>
-            </div>
-            <div class="stat">
-                <span class="stat-value">70 %</span>
-                <span class="stat-label">Músculo</span>
-            </div>
-        </section>
-        <div class="bottom-buttons">
-            <button type="button" onclick="window.location.href='historial.html'">
-                Historial
+        <div class="save-button">
+            <button type="button" onclick="window.location.href='cardio.html'">
+                Guardar
             </button>
-            <button type="button" onclick="window.location.href='seguimiento.html'">
-                Seguimiento
-            </button>
-            <button type="button" onclick="window.location.href='nuevo_analisis.html'">
-                Nuevo análisis
+        </div>
+
+        <div class="health-button">
+            <button type="button" onclick="window.location.href='../health/nuevo_analisis.html'">
+                Nuevo análisis de salud
             </button>
         </div>
         
     </main>
-
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <nav aria-label="Enlaces del pie">
@@ -94,5 +109,4 @@
         </div>
     </footer>
 </body>
-
 </html>

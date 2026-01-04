@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas</title>
+    <link rel="stylesheet" href="goals.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+</head>
+<body>
+    <header class="top-bar">
+        <button class="back-btn" onclick="window.location.href='../dashboard.html'">&#8592;</button>
+        <h1>Metas</h1>
+    </header>
+
+    <main class="main-content">
+        <form class="goals-form" id="addgoalsForm">
+                <input type="text" id="goalInput" placeholder="Escribe aquí tu meta" required maxlength="50">
+                <input type="date" id="goalStart" required>
+                <input type="date" id="goalDate" required>
+                <input type="text" id="goalDescription" placeholder="Descripción">
+
+                <button type="submit" class="add-btn">➕ Add</button>
+        </form>
+
+        <div class="goals-list" id="goalsList">
+            </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <nav aria-label="Enlaces del pie">
+                <p>Cualquier duda: <a href="../contact/contact.html">Contacto</a></p>
+                <a href="../privacy/privacy.html">Privacidad</a>
+            </nav>
+
+            <div class="social" aria-label="Redes sociales">
+
+                <a href="https://instagram.com/paabliitoo.da" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="18" cy="6" r="1" />
+                    </svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/pablo-de-abajo-plans-454307182" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/pablitodab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.058-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.176 2.873.171 3.177.768.84 1.239 1.91 1.239 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="footer-meta">
+                <small>© 2026 Pablo de Abajo Plans</small>
+            </div>
+        </div>
+    </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('addgoalsForm');
+    const goalInput = document.getElementById('goalInput');
+    const goalStart = document.getElementById('goalStart');
+    const goalDate = document.getElementById('goalDate');
+    const goalDescription = document.getElementById('goalDescription');
+    const list = document.getElementById('goalsList');
+
+    let goals = JSON.parse(localStorage.getItem('goals')) || [];
+
+    function daysRemaining(targetDate) {
+        const today = new Date();
+        const target = new Date(targetDate);
+        const diffTime = target - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+    }
+
+    function calculateProgress(startDate, endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const today = new Date();
+        
+        const totalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+        const elapsedDays = Math.ceil((today - start) / (1000 * 60 * 60 * 24));
+        
+        if (elapsedDays < 0) return 0;
+        if (elapsedDays > totalDays) return 100;
+        
+        return Math.round((elapsedDays / totalDays) * 100);
+    }
+
+    function renderGoals() {
+        list.innerHTML = '';
+
+        if (goals.length === 0) {
+            list.innerHTML = `
+                <div style="text-align: center; padding: 3rem; color: rgba(248,249,255,0.5);">
+                    <p style="font-size: 3rem; margin-bottom: 1rem;">🎯</p>
+                    <p>No tienes metas aún. ¡Crea tu primera meta!</p>
+                </div>
+            `;
+            return;
+        }
+
+        goals.forEach((goal, index) => {
+            const daysLeft = daysRemaining(goal.endDate);
+            const progress = calculateProgress(goal.startDate, goal.endDate);
+            const isExpired = daysLeft < 0;
+            const isCompleted = goal.completed || false;
+
+            const div = document.createElement('div');
+            div.className = `goal-item ${isCompleted ? 'completed' : ''} ${isExpired ? 'expired' : ''}`;
+            
+            div.innerHTML = `
+                <div class="goal-header">
+                    <h3 class="goal-title">${goal.name}</h3>
+                    <button class="delete-btn" onclick="deleteGoal(${index})">🗑️</button>
+                </div>
+                
+                ${goal.description ? `<p class="goal-description">${goal.description}</p>` : ''}
+                
+                <div class="goal-dates">
+                    <span class="date-badge">📅 Inicio: ${new Date(goal.startDate).toLocaleDateString('es-ES')}</span>
+                    <span class="date-badge">🎯 Límite: ${new Date(goal.endDate).toLocaleDateString('es-ES')}</span>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: ${progress}%"></div>
+                </div>
+                
+                <div class="goal-footer">
+                    <span class="days-remaining ${isExpired ? 'expired' : daysLeft <= 7 ? 'warning' : ''}">
+                        ${isExpired ? '⏰ Expirada' : daysLeft === 0 ? '🔥 Último día' : `⏳ ${daysLeft} días restantes`}
+                    </span>
+                    <button class="complete-btn ${isCompleted ? 'completed' : ''}" onclick="toggleGoal(${index})">
+                        ${isCompleted ? '✓ Completada' : 'Marcar completada'}
+                    </button>
+                </div>
+            `;
+            
+            list.appendChild(div);
+        });
+
+        localStorage.setItem('goals', JSON.stringify(goals));
+    }
+
+    window.toggleGoal = (index) => {
+        goals[index].completed = !goals[index].completed;
+        renderGoals();
+    };
+
+    window.deleteGoal = (index) => {
+        if (confirm('¿Estás seguro de que quieres eliminar esta meta?')) {
+            goals.splice(index, 1);
+            renderGoals();
+        }
+    };
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = goalInput.value.trim();
+        const startDate = goalStart.value;
+        const endDate = goalDate.value;
+        const description = goalDescription.value.trim();
+
+        if (new Date(endDate) <= new Date(startDate)) {
+            alert('La fecha límite debe ser posterior a la fecha de inicio');
+            return;
+        }
+
+        if (name && startDate && endDate) {
+            const newGoal = {
+                name,
+                startDate,
+                endDate,
+                description,
+                completed: false,
+                createdAt: new Date().toISOString()
+            };
+
+            goals.unshift(newGoal);
+            
+            goalInput.value = '';
+            goalStart.value = '';
+            goalDate.value = '';
+            goalDescription.value = '';
+            
+            renderGoals();
+        }
+    });
+
+    renderGoals();
+});
+</script>
+
+</body>
+</html>
