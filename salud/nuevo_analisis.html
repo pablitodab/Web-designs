@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo análisis</title>
     <link rel="stylesheet" href="nuevo_analisis.css">
+    <link rel="stylesheet" href="../footer/footer.css">
 </head>
 <body>
     <header class="top-bar">
@@ -13,56 +14,48 @@
     </header>
 
     <main class="main-content">
-        <!-- Fecha -->
         <div class="input-group pink">
             <label for="date">Fecha del análisis</label>
             <input type="date" id="date" value="2026-01-04" required>
             <span class="icon">📅</span>
         </div>
 
-        <!-- Peso -->
         <div class="input-group green">
             <label for="weight">Peso</label>
             <input type="number" id="weight" placeholder="Kg" required>
             <span class="icon">⚖️</span>
         </div>
 
-        <!-- Altura -->
         <div class="input-group blue">
             <label for="height">Altura</label>
             <input type="number" id="height" placeholder="cm" required>
             <span class="icon">📏</span>
         </div>
 
-        <!-- IMC -->
         <div class="input-group yellow">
             <label for="imc">IMC</label>
             <input type="number" id="imc">
             <span class="icon">📊</span>
         </div>
 
-        <!-- Grasa -->
         <div class="input-group red">
             <label for="fat">Grasa</label>
             <input type="number" id="fat" placeholder="%" required>
             <span class="icon">💧</span>
         </div>
 
-        <!-- Músculo -->
         <div class="input-group orange">
             <label for="muscle">Músculo</label>
             <input type="number" id="muscle" placeholder="%" required>
             <span class="icon">💪</span>
         </div>
 
-        <!-- Metabolismo basal -->
         <div class="input-group purple">
             <label for="metabolism">Metabolismo basal</label>
             <input type="number" id="metabolism" placeholder="Kcal" required>
             <span class="icon">🔥</span>
         </div>
 
-        <!-- Botón Guardar -->
         <button class="save-btn" onclick="window.location.href='health.html'">
             Guardar
         </button>

@@ -1,28 +1,12 @@
-/* health.css - VERSIÓN MÓVIL CORREGIDA */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: linear-gradient(135deg, #0a2540 0%, #093256 100%);
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 15px;
-    max-width: 390px;
-    margin: 0 auto;
-    overflow-x: hidden;
+    color: white;    
 }
 
-/* Top bar - más espacio */
 .top-bar {
     display: flex;
     align-items: center;
-    
     margin-bottom: 10px;
     padding: 10px 0;
 }
@@ -47,20 +31,19 @@ body {
     margin-left: 29%;
 }
 
-/* Main - más centrado vertical */
 .main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 0 10px;
-    max-height: 50vh;
-    
+    padding: 20px 10px;    
+    overflow-y: auto;
 }
 
-/* Círculo - más grande y centrado */
 .fat-section {
+    width: 100%;
+    flex: 1;
     text-align: center;
     margin-top: -10px;
 }
@@ -76,7 +59,7 @@ body {
 .circle-progress::before {
     content: '';
     position: absolute;
-    inset: 16px; /* top right bottom left */
+    inset: 16px;
     border-radius: 50%;
     background: conic-gradient(#00ff88 0deg, #00ff88 calc(var(--percent) * 3.6deg), #1e3a5f 0deg);
     mask: radial-gradient(farthest-side, transparent calc(99% - 2px), black);
@@ -116,7 +99,6 @@ body {
     margin-top: 8px;
 }
 
-/* Stats - MÁS ESPACIADOS para móvil */
 .stats {
     display: flex;
     justify-content: space-around;
@@ -147,7 +129,6 @@ body {
     font-weight: 500;
 }
 
-/* Botones - mejor espaciado */
 .bottom-buttons {
     display: flex;
     gap: 12px;
@@ -177,7 +158,6 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Móvil específico */
 @media (max-width: 420px) {
     body {
         padding: 15px 12px;
