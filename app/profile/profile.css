@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a5f 50%, #093256 100%);
+    color: #f8f9ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 22px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-2px);
+}
+
+.top-bar h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex: 1;
+    text-align: center;
+}
+
+.logout-btn {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #fca5a5;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.logout-btn:hover {
+    background: rgba(239,68,68,0.25);
+    border-color: rgba(239,68,68,0.5);
+    color: #ef4444;
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+.profile-main {
+    flex: 1;
+    padding: 2rem 1rem 180px;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102,126,234,0.6) rgba(255,255,255,0.08);
+}
+
+.profile-main::-webkit-scrollbar {
+    width: 5px;
+}
+
+.profile-main::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+}
+
+.profile-main::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(102,126,234,0.8), rgba(118,75,162,0.8));
+    border-radius: 12px;
+}
+
+/* Profile Section */
+.profile-section {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Profile Picture */
+.profile-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(102,126,234,0.6);
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(102,126,234,0.3);
+}
+
+.profile-picture[src="#"]::before {
+    content: "👤";
+    font-size: 4rem;
+}
+
+.edit-picture-btn {
+    background: rgba(102,126,234,0.2);
+    border: 1px solid rgba(102,126,234,0.4);
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.edit-picture-btn:hover {
+    background: rgba(102,126,234,0.3);
+    transform: scale(1.05);
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.stats-group {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.description-group {
+    grid-template-columns: 1fr;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(102,126,234,0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(248,249,255,0.9);
+}
+
+.info-value.highlight {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(248,249,255,0.8);
+    font-style: italic;
+}
+
+/* Edit Profile Button */
+.edit-profile-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-top: 1rem;
+}
+
+.edit-profile-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(102,126,234,0.4);
+}
+
+.edit-profile-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .profile-main {
+        padding: 1.5rem 0.75rem 180px;
+    }
+
+    .profile-section {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-picture[src="#"]::before {
+        font-size: 3rem;
+    }
+
+    .info-group {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .stats-group {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-value.highlight {
+        font-size: 1.25rem;
+    }
+
+    .top-bar {
+        padding: 0.75rem 1rem;
+    }
+
+    .top-bar h1 {
+        font-size: 1.25rem;
+    }
+
+    .logout-btn {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .stats-group {
+        grid-template-columns: 1fr;
+    }
+}

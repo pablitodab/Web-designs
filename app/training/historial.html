@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrenamiento</title>
-    <link rel="stylesheet" href="training.css">
+    <title>Historial</title>
+    <link rel="stylesheet" href="historial.css">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
+
 <body>
     <header class="top-bar">
-        <button class="back-btn" onclick="window.location.href='../dashboard.html'">&#8592;</button>
-        <h1>Entrenamientos</h1>
+        <button class="back-btn" onclick="window.location.href='training.html'">&#8592;</button>
+        <h1>Historial de entrenamientos</h1>
     </header>
 
     <main class="main-content">
-        <section class="fat-section">
-            <div class="circle-progress">
-                <div class="circle-inner">
-                    <p class="percent">🔥</p>
-                    <p class="label">3 días seguidos</p>
-                </div>
-            </div>
-            
+        <section class="history-section">
+            <ul class="history-list">
+                <li class="history-item" data-exercise="Pecho, hombro y tríceps" data-date="04-01-2026">
+                    <span class="ejercicio-1">Press inclinado en smith</span>
+                    <span class="ejercicio-2">Press plano con mancuernas</span>
+                    <span class="ejercicio-3">Fondos</span>
+                    <span class="ejercicio-4">Aperturas en máquina</span>
+                    <span class="ejercicio-5">Elevaciones laterales</span>
+                    <span class="ejercicio-6">Extension de tríceps</span>
+                    <span class="ejercicio-7">Katana</span>
+                </li>
+                <li class="history-item" data-exercise="Espalda, hombro post y bíceps" data-date="25-12-2025">
+                    <span class="ejercicio-1">Jalón al pecho</span>
+                    <span class="ejercicio-2">Unilaterales en jalón</span>
+                    <span class="ejercicio-3">Remo en polea</span>
+                    <span class="ejercicio-4">Face pull</span>
+                    <span class="ejercicio-5">Aperturas en máquina</span>
+                    <span class="ejercicio-6">Remo en smith</span>
+                    <span class="ejercicio-7">Martillo bíceps</span>
+                    <span class="ejercicio-8">Curl bíceps apoyado</span>
+                </li>
+                <li class="history-item" data-exercise="Pierna y lumbar" data-date="01-12-2025">
+                    <span class="ejercicio-1">Peso muerto</span>
+                    <span class="ejercicio-2">Abductor interno</span>
+                    <span class="ejercicio-3">Extensiones de cuádriceps</span>
+                    <span class="ejercicio-4">Abductor externo</span>
+                    <span class="ejercicio-5">Sentadilla en smith</span>
+                    <span class="ejercicio-6">Zancadas</span>
+                </li>
+            </ul>
         </section>
-
-        <div class="bottom-buttons">
-            <button type="button" onclick="window.location.href='historial.html'">
-                Historial
-            </button>
-            <button type="button" onclick="window.location.href='sesion.html'">
-                Iniciar rutina
-            </button>
-            <button type="button" onclick="window.location.href='rutinas.html'">
-                Ver rutinas
-            </button>
-        </div>
     </main>
 
     <footer class="site-footer" role="contentinfo">
@@ -77,4 +89,5 @@
         </div>
     </footer>
 </body>
+
 </html>

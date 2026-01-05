@@ -1,41 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrenamiento</title>
-    <link rel="stylesheet" href="training.css">
+    <title>Rutinas</title>
+    <link rel="stylesheet" href="rutinas.css">
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
+
 <body>
     <header class="top-bar">
-        <button class="back-btn" onclick="window.location.href='../dashboard.html'">&#8592;</button>
-        <h1>Entrenamientos</h1>
+        <button class="back-btn" onclick="window.location.href='training.html'">&#8592;</button>
+        <h1>Rutinas guardadas</h1>
     </header>
 
     <main class="main-content">
-        <section class="fat-section">
-            <div class="circle-progress">
-                <div class="circle-inner">
-                    <p class="percent">🔥</p>
-                    <p class="label">3 días seguidos</p>
-                </div>
-            </div>
-            
-        </section>
+        <div class="training-container">
+            <button class="open-modal-btn" id="openModalBtn">
+                <span>➕</span> Agregar rutina
+            </button>
 
-        <div class="bottom-buttons">
-            <button type="button" onclick="window.location.href='historial.html'">
-                Historial
-            </button>
-            <button type="button" onclick="window.location.href='sesion.html'">
-                Iniciar rutina
-            </button>
-            <button type="button" onclick="window.location.href='rutinas.html'">
-                Ver rutinas
-            </button>
+            <div id="trainingList" class="training-list"></div>
         </div>
     </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-panel" id="modalPanel">
+            <div class="modal-header">
+                <h2>Nueva Rutina</h2>
+                <button class="close-modal-btn" id="closeModalBtn">✕</button>
+            </div>
+
+            <div class="modal-content">
+                <form id="routineForm" class="routine-form">
+                    <div class="form-group">
+                        <label for="routineName">Nombre de la rutina</label>
+                        <input type="text" id="routineName" placeholder="Ej: Pecho, hombro, tríceps" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="routineDays">Días de entrenamiento</label>
+                        <input type="text" id="routineDays" placeholder="Ej: Lunes y jueves" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ejercicios</label>
+
+                        <div class="add-exercise-input-group">
+                            <input type="text" id="newExerciseInput" placeholder="Ej: Bench Press - 5 sets x 4-13 reps">
+                            <button type="button" class="add-exercise-btn-icon" id="addExerciseBtn">+</button>
+                        </div>
+
+                        <div id="exercisesList" class="exercises-list"></div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                        <button type="submit" class="save-btn">Guardar rutina</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
@@ -76,5 +103,7 @@
             </div>
         </div>
     </footer>
+    <script src="rutinas.js"></script>
 </body>
+
 </html>
