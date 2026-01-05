@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="footer/footer.css">
 </head>
+
 <body>
     <header class="top-bar">
         <h1>Dashboard</h1>
@@ -15,107 +17,119 @@
         <button onclick="window.location.href='index.html'">Logout</button>
     </header>
     <main class="dashboard">
-        <section class="card cardio-card" onclick="window.location.href='cardio/cardio.html'">
-            <div class="card-icon">🏃</div>
-            <h2>Cardio</h2>
-            <div class="card-stats">
-                <div class="stat-item">
-                    <span class="stat-value">20%</span>
-                    <span class="stat-label">Objetivo semanal</span>
+        <section class="services-grid">
+            <!-- Habit Tracker: datos dinámicos -->
+            <section class="card habit-card" onclick="window.location.href='habit-tracker/habit.html'">
+                <div class="card-icon">✅</div>
+                <h2>Habit Tracker</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="habitStreak">6</span>
+                        <span class="stat-label">Días seguidos</span>
+                    </div>
+                    <div class="mini-stats" data-key="habitMini">
+                        <span>2 activos • 1 completados</span>
+                    </div>
                 </div>
-                <div class="mini-stats">
-                    <span>1:27h • 5.0km • 470kcal</span>
-                </div>
-            </div>
-            <div class="card-arrow">→</div>
-        </section>
-        <section class="card health-card" onclick="window.location.href='health/health.html'">
-            <div class="card-icon">🫀</div>
-            <h2>Salud</h2>
-            <div class="card-stats">
-                <div class="stat-item">
-                    <span class="stat-value">20%</span>
-                    <span class="stat-label">Grasa corporal</span>
-                </div>
-                <div class="mini-stats">
-                    <span>77kg • IMC 26.33 • 70% músculo</span>
-                </div>
-            </div>
-            <div class="card-arrow">→</div>
-        </section>
+                <div class="card-arrow">→</div>
+            </section>
 
-        <section class="card training-card" onclick="window.location.href='training/training.html'">
-            <div class="card-icon">💪</div>
-            <h2>Entrenamientos</h2>
-            <div class="card-stats">
-                <div class="stat-item">
-                    <span class="stat-value">0</span>
-                    <span class="stat-label">Esta semana</span>
+            <!-- Goals -->
+            <section class="card goals-card" onclick="window.location.href='goals/goals.html'">
+                <div class="card-icon">🎯</div>
+                <h2>Metas</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="goalsProgress">0/2</span>
+                        <span class="stat-label">Completadas</span>
+                    </div>
+                    <div class="mini-stats" data-key="goalsMini">
+                        <span>Establece tus objetivos</span>
+                    </div>
                 </div>
-                <div class="mini-stats">
-                    <span>Planifica tu rutina</span>
-                </div>
-            </div>
-            <div class="card-arrow">→</div>
-        </section>
+                <div class="card-arrow">→</div>
+            </section>
 
-        <section class="card habit-card" onclick="window.location.href='habit-tracker/habit.html'">
-            <div class="card-icon">✅</div>
-            <h2>Habit Tracker</h2>
-            <div class="card-stats">
-                <div class="stat-item">
-                    <span class="stat-value">6</span>
-                    <span class="stat-label">Días seguidos</span>
+            <!-- Cardio: valores de la imagen -->
+            <section class="card cardio-card" onclick="window.location.href='cardio/cardio.html'">
+                <div class="card-icon">🏃</div>
+                <h2>Cardio</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="cardioProgress">20%</span>
+                        <span class="stat-label">Objetivo semanal</span>
+                    </div>
+                    <div class="mini-stats" data-key="cardioMini">
+                        <span>1:27h • 5.0km • 470kcal</span>
+                    </div>
                 </div>
-                <div class="mini-stats">
-                    <span>2 activos • 1 completados</span>
-                </div>
-            </div>
-            <div class="card-arrow">→</div>
-        </section>
+                <div class="card-arrow">→</div>
+            </section>
 
-        <section class="card goals-card" onclick="window.location.href='goals/goals.html'">
-            <div class="card-icon">🎯</div>
-            <h2>Metas</h2>
-            <div class="card-stats">
-                <div class="stat-item">
-                    <span class="stat-value">0/2</span>
-                    <span class="stat-label">Completadas</span>
+            <!-- Training -->
+            <section class="card training-card" onclick="window.location.href='training/training.html'">
+                <div class="card-icon">💪</div>
+                <h2>Entrenamientos</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="trainingCount">0</span>
+                        <span class="stat-label">Esta semana</span>
+                    </div>
+                    <div class="mini-stats" data-key="trainingMini">
+                        <span>Planifica tu rutina</span>
+                    </div>
                 </div>
-                <div class="mini-stats">
-                    <span>Establece tus objetivos</span>
-                </div>
-            </div>
-            <div class="card-arrow">→</div>
-        </section>
+                <div class="card-arrow">→</div>
+            </section>
 
+            <!-- Health: datos de imagen -->
+            <section class="card health-card" onclick="window.location.href='health/health.html'">
+                <div class="card-icon">🫀</div>
+                <h2>Salud</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="bodyFat">20%</span>
+                        <span class="stat-label">Grasa corporal</span>
+                    </div>
+                    <div class="mini-stats" data-key="healthMini">
+                        <span>77kg • IMC 26.33 • 70% músculo</span>
+                    </div>
+                </div>
+                <div class="card-arrow">→</div>
+            </section>
+
+            <!-- Nutrition -->
+            <section class="card nutrition-card" onclick="window.location.href='nutrition/nutrition.html'">
+                <div class="card-icon">🍥</div>
+                <h2>Nutrición</h2>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-key="nutritionCount">0</span>
+                        <span class="stat-label">Esta semana</span>
+                    </div>
+                    <div class="mini-stats" data-key="nutritionMini">
+                        <span>Planifica tu rutina</span>
+                    </div>
+                </div>
+                <div class="card-arrow">→</div>
+            </section>
+        </section>
+        <!-- Quick Summary: datos dinámicos de imagen -->
         <section class="quick-summary">
             <h3>Resumen de hoy</h3>
             <div class="summary-grid">
-                <div class="summary-item">
-                    <span class="summary-icon">🔥</span>
-                    <span class="summary-text">0 kcal</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-icon">💪</span>
-                    <span class="summary-text">0 entrenos</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-icon">✅</span>
-                    <span class="summary-text">0 hábitos</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-icon">🫀</span>
-                    <span class="summary-text">0 análisis</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-icon">🎯</span>
-                    <span class="summary-text">0 metas</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-icon">📅</span>
-                    <span class="summary-text">0 Racha</span>
-                </div>
+                <div class="summary-item"><span class="summary-icon">🔥</span><span class="summary-text"
+                        data-key="todayKcal">0 kcal</span></div>
+                <div class="summary-item"><span class="summary-icon">💪</span><span class="summary-text"
+                        data-key="todayWorkouts">0 entrenos</span></div>
+                <div class="summary-item"><span class="summary-icon">✅</span><span class="summary-text"
+                        data-key="todayHabits">0 hábitos</span></div>
+                <div class="summary-item"><span class="summary-icon">🫀</span><span class="summary-text"
+                        data-key="todayAnalysis">0 análisis</span></div>
+                <div class="summary-item"><span class="summary-icon">🎯</span><span class="summary-text"
+                        data-key="todayGoals">0 metas</span></div>
+                <div class="summary-item"><span class="summary-icon">📅</span><span class="summary-text"
+                        data-key="todayStreak">0 Racha</span></div>
             </div>
         </section>
     </main>
@@ -160,4 +174,5 @@
         </div>
     </footer>
 </body>
+
 </html>
